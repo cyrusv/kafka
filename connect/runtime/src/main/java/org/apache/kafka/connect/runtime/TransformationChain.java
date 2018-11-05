@@ -75,10 +75,10 @@ public class TransformationChain<R extends ConnectRecord<R>> {
     }
 
     public String toString() {
-        StringJoiner str = new StringJoiner(", ", "<" + getClass().getSimpleName() + ": ", ">");
-        for (final Transformation<R> transformation : transformations) {
-            str.add(transformation.getClass().getSimpleName());
+        StringJoiner chain = new StringJoiner(", ", "<" + getClass().getSimpleName() + ": ", ">");
+        for (Transformation<R> transformation : transformations) {
+            chain.add(transformation.getClass().getSimpleName());
         }
-        return str.toString();
+        return chain.toString();
     }
 }
