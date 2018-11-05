@@ -159,8 +159,7 @@ public abstract class Cast<R extends ConnectRecord<R>> implements Transformation
             final Object origFieldValue = value.get(field);
             final Schema.Type targetType = casts.get(field.name());
             final Object newFieldValue = targetType != null ? castValueToType(field.schema(), origFieldValue, targetType) : origFieldValue;
-            log.trace("Cast field '{}' from '{}' to '{}'",
-                field.name(), origFieldValue, newFieldValue);
+            log.trace("Cast field '{}' from '{}' to '{}'", field.name(), origFieldValue, newFieldValue);
             updatedValue.put(updatedSchema.field(field.name()), newFieldValue);
         }
         return newRecord(record, updatedSchema, updatedValue);

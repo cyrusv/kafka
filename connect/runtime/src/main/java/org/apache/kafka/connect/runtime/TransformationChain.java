@@ -45,7 +45,7 @@ public class TransformationChain<R extends ConnectRecord<R>> {
             final R current = record;
 
             log.trace("Applying SMT transformation {} to {}",
-                transformation.getClass().getName(), record);
+                transformation.getClass().getSimpleName(), record);
             // execute the operation
             record = retryWithToleranceOperator.execute(() -> transformation.apply(current), Stage.TRANSFORMATION, transformation.getClass());
 
