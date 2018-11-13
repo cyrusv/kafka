@@ -41,7 +41,7 @@ public class TransformationChain<R extends ConnectRecord<R>> {
     public R apply(R record) {
         if (transformations.isEmpty()) return record;
 
-        for (final Transformation<R> transformation : transformations) {
+        for (Transformation<R> transformation : transformations) {
             final R current = record;
 
             log.trace("Applying Single Message Transformation (SMT) {} to {}",
